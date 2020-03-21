@@ -14,14 +14,17 @@ export const List = (props) => {
     return(
 
         <div>
-            <p>{count}</p>
             <div>
                 <Input></Input>
             </div>
             <div style={rowStyle}>
-                <Row number={1} message={'Do Laundry'}></Row><Delete onClick={() => updateCount(count - 1)}></Delete>
+                <Row number={count} message={'Do Laundry'}></Row><Delete onClick={handleDeleteClick}></Delete>
             </div>
         </div>
     )
-
+ 
+    //We can call the state hooks from inside a function, neat!
+    function handleDeleteClick() {
+        updateCount(count - 1)
+    }
 }
