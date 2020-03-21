@@ -16,7 +16,7 @@ export const App = () => {
   return (
     <div style={appStyle} className="App">
       <h1 style={titleStyle}>To-do List</h1>
-      <List></List>
+      <List new='true'></List>
     </div>
   );
 }

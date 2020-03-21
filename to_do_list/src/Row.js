@@ -1,6 +1,4 @@
 import React from 'react';
-import { Delete } from './Delete';
-
 
 const rowStyle = {
     paddingTop: '1em',
@@ -9,7 +7,7 @@ const rowStyle = {
 export const Row = (props) => {
     return(
         <div style={rowStyle}>
-            {props.number}. {props.message} <Delete/>
+            {props.number}. {props.message}
         </div>
     )
 }

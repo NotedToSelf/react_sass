@@ -1,23 +1,27 @@
 import React, {useState} from 'react';
 import { Row } from './Row';
 import { Input } from './Input';
+import { Delete } from './Delete';
 
-export const List = () => {
+const rowStyle = {
+    display: 'inline-flex',
+    whiteSpace: 'nowrap'
+};
+
+export const List = (props) => {
+
+    const [count, updateCount] = useState(1);
     return(
+
         <div>
+            <p>{count}</p>
             <div>
                 <Input></Input>
             </div>
-            <div>
-                <Row number={1} message={'Do Laundry'}></Row>
-                <Row number={2} message={'Eat Lunch'}></Row>
-                <Row number={3} message={'Exercise'}></Row>
-                <Row number={4} message={'Drink Water'}></Row>
+            <div style={rowStyle}>
+                <Row number={1} message={'Do Laundry'}></Row><Delete onClick={() => updateCount(count - 1)}></Delete>
             </div>
         </div>
     )
 
-    function onDelete(i) {
-        return;
-    }
 }
