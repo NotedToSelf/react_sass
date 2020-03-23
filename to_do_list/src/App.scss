@@ -1,0 +1,16 @@
+global {
+
+    $font: Helvetica, sans-serif;
+
+    .titles {
+        font: $font;
+        paddingBottom: '10em';
+        font-size: '4em';
+        color: blue;
+    }
+
+    .textBox {
+        height: '1em';
+        width: '30em';
+    }
+}

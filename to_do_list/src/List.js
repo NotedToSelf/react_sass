@@ -3,26 +3,38 @@ import { Row } from './Row';
 import { Input } from './Input';
 import { Delete } from './Delete';
 
+const gridStyle = {
+    display: 'grid'
+}
 const rowStyle = {
-    display: 'inline-flex',
-    whiteSpace: 'nowrap'
-};
 
+}
+const rows = []
 export const List = (props) => {
 
     const [count, updateCount] = useState(1);
     return(
-
-        <div>
+         <div>
             <div>
-                <Input></Input>
+                <Input handler={handleInput}></Input>
             </div>
-            <div style={rowStyle}>
-                <Row number={count} message={'Do Laundry'}></Row><Delete onClick={handleDeleteClick}></Delete>
+            <div display={gridStyle}>
+                {rows}
             </div>
         </div>
     )
  
+    function handleInput(event) {
+        if(event.key === "Enter") {
+            updateCount(count + 1)
+            const current = count;
+            var message = document.getElementById("txtArea").value;
+            document.getElementById("txtArea").value = "";
+            console.log(message);
+            rows.push(<div style={rowStyle}><Row key={current} number={current} message={message}></Row><Delete onClick={handleDeleteClick}></Delete></div>);
+        }
+    }
+
     //We can call the state hooks from inside a function, neat!
     function handleDeleteClick() {
         updateCount(count - 1)

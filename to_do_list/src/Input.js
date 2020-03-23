@@ -1,25 +1,15 @@
 import React from 'react';
-
-const textArea = {
-    height: '1em',
-    width: '20em'
-};
+import './App.scss';
 
 const labelStyle = {
     paddingRight: '3em',
 }
 
-export const Input = () => {
+export const Input = (props) => {
     return(
         <div>
             <label style={labelStyle} type="text">Enter A Task:</label>
-            <textarea style={textArea} id="txtArea" onKeyDown={onEnter}></textarea>
+            <textarea className={"textBox"} id="txtArea" onKeyDown={props.handler}></textarea>
         </div>
     )
-
-    function onEnter(event) {
-        if(event.key === "Enter") {
-            console.log("Hit Enter")
-        }
-    }
 }
